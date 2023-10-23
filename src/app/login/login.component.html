@@ -1,0 +1,40 @@
+<!-- <small *ngIf="invalidLogin" >{{errorMessage}}</small>
+
+<div>
+User Name : <input type = "text" name ="username" [(ngModel)]="username"> -->
+
+<!-- Password : <input type="password" name="password" value="{{password}}"> -->
+<!-- Password: <input type="password" name = "password" [(ngModel)]="password"> -->
+
+<!-- 1. interpolation {{username}} - data binding -->
+<!--2. event binding --   (event happend)=What should u do():here login click calls function of component event to print username-->
+
+<!-- <button (click)=handleLogin()>Login</button> -->
+
+<!-- 3.banana in a box approach : angular feature - ngModel (angular directive)- class from another module- need to import FormsModule in app.module:
+    what it does is tie this field to a model element - username (property name of component) // removes data binding interpolation, 
+    value ngmodel do binding on both the sides- take data from login component and   tie down to template and
+     when data is changing on the template it would automatically update value inside the component
+-->
+<!-- </div> -->
+
+<h1>Login!</h1>
+<div class="container">
+    <div class="alert alert-warning" *ngIf="invalidLogin" >{{errorMessage}}</div>
+
+    <div>
+    User Name : <input type = "text" name ="username" [(ngModel)]="username">
+    <!-- Password : <input type="password" name="password" value="{{password}}"> -->
+    Password: <input type="password" name = "password" [(ngModel)]="password">
+    <!-- 1. interpolation {{username}} - data binding -->
+    <!--2. event binding --   (event happend)=What sould u do():here login click calls function of component event to print username-->
+    <button (click)=handleLogin() class="btn btn-success">Login</button>
+    <!-- 3.banana in a box approach : angular feature - ngModel (angular directive)- class from another module- need to import FormsModule in app.module:
+        what it does is tie this field to a model element - username (property name of component) // removes data binding interpolation, 
+        value ngmodel do binding on both the sides- take data from login component and   tie down to template and
+        when data is changing on the template it would automatically update value inside the component
+    -->
+    </div>
+</div>
+
+

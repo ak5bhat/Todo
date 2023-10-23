@@ -1,0 +1,32 @@
+enable <app-login>
+1. welcome component - experiment
+2. login component
+3. route welcome and logincomponent -  enable router-outlet
+4. generate error component - add to route
+5. if login valid : route to welcome page  
+6. add username as a parameter in welcome page url - change route (welcome comp) -activated route in welcome - login navigate change pass parameter\
+7. listTodos comp create - add route - *ngFor = "let todo of todos" - table
+8. welcome page link - routerLink
+9. todo class constructor
+    Future
+    - No Navigation menu and Footer
+    - Formating -Bootstrap
+    - No Security for Menus
+    - Hardcoded Logic in TodoList and Login components
+    - Remaining Functionality - Edit, Delete, Add
+    - Spring Boot
+    - Spring Security
+10. Adding bootstrap Framework and creating Components for menu and footer - styles.css - @import url() - create menu and footer comp
+11. Adding Top menu element feature - using href - later will use routerLink - nav menu is set dark color in html
+12. Footer comp html and css - app.comp.html container - todos.comp.html add changes- login.comp.html add changes -welcome.comp.html add changes -getbootstrap.com
+13. step 11 - change to routerLink
+
+14. create service hardcodedAuthentication - ng g s service/hardcodedAuthentication - HcodAuthentication.service.ts : define authenticate - dependency injection in login.ts - call this service in if()
+15. using session storage to store the user auth token - add changes in hdCodAuth.service.ts - authenticate() -added session storage - isUserloggedin: true or false
+16. enabling menu links based on user auth token - menu.ts - add hard-auth-service- changes in constructor - menu.html : *ngIf="isUserLoggedIn" - theres a flaw in this approach we will enhance it like this - directly call service: hardcodedauthservice.isuserloggedin() - problem with OnInit: menu comp is initialized only once at the load of the page : ngOninit wont be called again from .ts in the case when u have deleted cleared the session storage. Now even though the user is logged out(session storage cleared) u still show the todos page from welcome page link. but menu is alright.
+17. Implementing logout to remove user auth token -  create logout comp and add it to routes - logout.html add changes - hardcoded.ser.ts - add logout() - need to use this in logout comp - dep inj in logout.ts - ngOninit(){logout()} - now login and logout working fine but the todo url is still opening even if u are not logged in.
+18. Securing comp using Route guard part1: here what we do is we create service which activates comp only if the user is logged in - ng g s service/routeGuard - implements CanActivate (@angular/router) - canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) return true only if the user is logged in - so dependency injection of hardcodedauth
+19. part 2 - app-routing.module.ts - add canActivate:[RouteGuardService] to welcome,todos,logout - then checked todo url after logging out- blank in content- added changes in canActivate()- if not logged in, then navigate to login page - dependency inj of router in constructor- navigate call
+
+hardcodedauthservice is used by login, logout, menu comp.
+RouteGuardService user canActivate - used in AppRoutingModule
